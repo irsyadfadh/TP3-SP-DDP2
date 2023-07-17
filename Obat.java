@@ -1,8 +1,11 @@
 public class Obat {
+
     private String kategori;
     private String nama;
     private int harga;
     private int stok;
+    private int jumlahTerjual;
+    private int totalPendapatan;
 
     public Obat(String nama, int stok, String kategori){
         this.nama = nama;
@@ -12,22 +15,22 @@ public class Obat {
 
     // TODO : Implementasi method getter getKategori
     public String getKategori(){
-        return kategori;
+        return this.kategori;
     }
 
     // TODO : Implementasi method getter getNama
     public String getNama(){
-        return nama;
+        return this.nama;
     }
 
     // TODO : Implementasi method getter getHarga
     public int getHarga(){
-        return harga;
+        return this.harga;
     }
 
     // TODO : Implementasi method getter getStok
     public int getStok(){
-        return stok;
+        return this.stok;
     }
 
     // TODO : Implementasi method setter setKategori
@@ -45,4 +48,17 @@ public class Obat {
         this.harga = harga;
     }
 
+    // tambahan
+    public void setTransaksi(int jumlahTerjual, int totalPendapatan) {
+        this.jumlahTerjual += jumlahTerjual;
+        this.totalPendapatan += totalPendapatan;
+    }
+
+    public int getJumlahTerjual() {
+        return this.jumlahTerjual;
+    }
+
+    public int getTotalPendapatan() {
+        return this.totalPendapatan;
+    }
 }

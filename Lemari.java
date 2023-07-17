@@ -1,4 +1,5 @@
 public class Lemari {
+  
     private int ukuran;
     private Rak[] rak;
 
@@ -12,35 +13,34 @@ public class Lemari {
     }
 
     // TODO : Implementasi method print
-    public void print(){
-        for (int i = 0; i < ukuran; i++) {
-            System.out.println("Rak ke-" + (i+1) + ": " + rak[i].getKategoriRak());
-            rak[i].printRak();
-            System.out.println();
+    public void print() {
+        for (int i = rak.length - 1; i >= 0; i--) {
+            if (rak[i] != null) {
+                rak[i].printRak();
+                System.out.println();
+            }
         }
     }
 
     // TODO : Implementasi method beliObat
     public boolean beliObat(Obat obat, int jumlah) {
-        Obat obat = searchObat(namaObat);
-        if (obat == null) {
-            System.out.println("Obat tidak tersedia");
-            return false;
+        for (Rak r : rak) {
+            if (r != null) {
+                if (r.getKategoriRak().equals(obat.getKategori())) {
+                    return r.beliObat(obat, jumlah);
+                }
+            }
         }
-        if (obat.getStok() < jumlah) {
-            System.out.println("Stok obat tidak mencukupi");
-            return false;
-        }
-        obat.setStok(obat.getStok() - jumlah);
-        return true; 
+        return false;
     }
+    
 
     // TODO : Implementasi method searchObat
     public Obat searchObat(String namaObat) {
-        for (Rak r : rak) {
-            Obat[] obatList = r.getListObat();
-            for (Obat obat : obatList) {
-                if (obat != null && obat.getNama().equals(namaObat)) {
+        for (Rak rak : rak) {
+            if (rak != null) {
+                Obat obat = rak.searchObat(namaObat);
+                if (obat != null) {
                     return obat;
                 }
             }
@@ -48,8 +48,26 @@ public class Lemari {
         return null;
     }
 
+
     // TODO : Implementasi method getRak
     public Rak getRak(int i) {
-        return rak[i];
+        if (i >= 0 && i < ukuran) {
+            return rak[i];
+        }
+        return null;
     }
+
+    // tambahan
+    public int getUkuran() {
+        return this.ukuran;
+    }
+
+    public boolean isKategoriRakValid(Rak rak, String kategoriObat) {
+        if (rak != null && kategoriObat != null) {
+            return rak.getKategoriRak().equalsIgnoreCase(kategoriObat);
+        }
+        return false;
+    }
+
 }
+

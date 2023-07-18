@@ -133,10 +133,11 @@ public class HaloDDP {
                     System.out.println("Obat tidak ditemukan");
                 }
             } else if (menu.equals("99")) {
+                //keluar program
                 if (rak == null) {
                     System.out.println("Tetap semangat. Besok pasti akan jauh lebih baik!");
                     break;
-                } else {
+                } else { //menampulkan riwayat transaksi
                     int counter = 1;
                     System.out.println("Riwayat transaksi hari ini");
                     System.out.println();
@@ -166,7 +167,7 @@ public class HaloDDP {
         input.close();
         System.out.println("Terima kasih telah menggunakan Haloddp!");
     }
-
+    /*Proses Pembelian obat */
     public static boolean beliObat(Lemari lemari, Obat obat, int jumlah) {
         Rak rak = searchRak(lemari, obat);
         if (rak != null) {
@@ -182,7 +183,7 @@ public class HaloDDP {
         }
         return false;
     }
-
+    /*Mencari rak berdasarkan obat */
     private static Rak searchRak(Lemari lemari, Obat obat) {
         for (int i = 0; i < lemari.getUkuran(); i++) {
             Rak rak = lemari.getRak(i);
@@ -192,12 +193,12 @@ public class HaloDDP {
         }
         return null;
     }
-
+    /*Menambahkan transaksi pembelian obat */
     private static void tambahTransaksi(Rak rak, Obat obat, int jumlah, int totalHarga) {
         obat.setTransaksi(jumlah, totalHarga);
     }
 
-
+    /*Menghitung harga obat */
     private static int calculateHarga(int baris, int kolom, int basePrice) {
         int i = baris;
         int j = kolom;

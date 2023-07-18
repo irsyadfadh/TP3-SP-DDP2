@@ -13,51 +13,51 @@ public class Obat {
         this.kategori = kategori;
     }
 
-    // TODO : Implementasi method getter getKategori
+    /*Method ini digunakan untuk mendapatkan kategori obat dalam bentuk string. */
     public String getKategori(){
         return this.kategori;
     }
 
-    // TODO : Implementasi method getter getNama
+    /* Method ini digunakan untuk mendapatkan nama obat dalam bentuk string. */
     public String getNama(){
         return this.nama;
     }
 
-    // TODO : Implementasi method getter getHarga
+    /*Method ini digunakan untuk mendapatkan harga obat dalam bentuk integer. */
     public int getHarga(){
         return this.harga;
     }
 
-    // TODO : Implementasi method getter getStok
+    /*Method ini digunakan untuk mendapatkan stok obat dalam bentuk integer. */
     public int getStok(){
         return this.stok;
     }
 
-    // TODO : Implementasi method setter setKategori
+    /*Method ini digunakan untuk mengubah kategori obat. */
     public void setKategori(String kategori){
         this.kategori = kategori;
     }
 
-    // TODO : Implementasi method setter setNama
+    /*Method ini digunakan untuk mengubah stok obat. */
     public void setStok(int stok){
         this.stok = stok;
     }
 
-    // TODO : Implementasi method setter setHarga
+    /*Method ini digunakan untuk mengubah harga obat */
     public void setHarga(int harga){
         this.harga = harga;
     }
 
-    // tambahan
+    /*Method ini digunakan untuk mengupdate jumlah terjual dan total pendapatan obat. */
     public void setTransaksi(int jumlahTerjual, int totalPendapatan) {
         this.jumlahTerjual += jumlahTerjual;
         this.totalPendapatan += totalPendapatan;
     }
-
+    //mendapatkan jumlah obat yang terjual dalam bentuk integer.
     public int getJumlahTerjual() {
         return this.jumlahTerjual;
     }
-
+    //mendapatkan total pendapatan dari penjualan obat dalam bentuk integer.
     public int getTotalPendapatan() {
         return this.totalPendapatan;
     }
